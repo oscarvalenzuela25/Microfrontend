@@ -7,7 +7,7 @@ const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: '/marketing/latest/',
+    publicPath: '/marketing/latest/', // Ruta del bucket de s3 a exponer el archivo remoteEntry.js
   },
   plugins: [
     new ModuleFederationPlugin({
