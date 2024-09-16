@@ -6,22 +6,21 @@ const packageJson = require('../package.json');
 const devConfig = {
   mode: 'development',
   devServer: {
-    port: 8080,
+    port: 8082,
     historyApiFallback: {
       index: '/index.html',
     },
   },
   output: {
-    publicPath: 'http://localhost:8080/', // Ruta base que tomara en modo desarrollo
+    publicPath: 'http://localhost:8082/', // Ruta base que tomara en modo desarrollo
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'container',
-      remotes: {
-        // Para hacer uso de esto, se usa el marketing y despues se van a las carpetas que importamos, por ejemplo la de MarketingApp
-        // import { mount } from 'marketing/MarketingApp';
-        marketing: 'marketing@http://localhost:8081/remoteEntry.js',
-        auth: 'auth@http://localhost:8082/remoteEntry.js',
+      name: 'auth',
+      filename: 'remoteEntry.js',
+      exposes: {
+        // Aqui se crea como si fuera una carpeta, carpeta AuthApp y dentro tiene un index.js
+        './AuthApp': './src/bootstrap',
       },
       // shared: ['react', 'react-dom'],
       shared: packageJson.dependencies,

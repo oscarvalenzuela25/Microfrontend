@@ -3,7 +3,7 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onNavigate, onSignIn, defaultHistory, initialPath }) => {
   // Creamos esto para poder compartir el historial de navegacion desde el padre al hijo
   // Esto sucede cuando el hijo contiene navegacion interna
   const history =
@@ -14,7 +14,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   if (onNavigate) {
     history.listen(onNavigate);
   }
-  ReactDOM.render(<App history={history} />, el);
+  ReactDOM.render(<App history={history} onSignIn={onSignIn} />, el);
 
   return {
     onParentNavigate: ({ pathname: nextPathName }) => {
@@ -27,7 +27,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 };
 
 if (process.env.NODE_ENV === 'development') {
-  const el = document.querySelector('#_marketing-dev-root');
+  const el = document.querySelector('#_auth-dev-root');
   if (el) {
     // Para evitar problemas en ambientes de desarrollo, se crea un historial de navegacion
     mount(el, { defaultHistory: createBrowserHistory() });

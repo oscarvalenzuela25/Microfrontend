@@ -3,24 +3,19 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json');
 
-const devConfig = {
-  mode: 'development',
-  devServer: {
-    port: 8081,
-    historyApiFallback: {
-      index: '/index.html',
-    },
-  },
+const prodConfig = {
+  mode: 'production',
   output: {
-    publicPath: 'http://localhost:8081/', // Ruta base que tomara en modo desarrollo
+    filename: '[name].[contenthash].js',
+    publicPath: '/auth/latest/', // Ruta del bucket de s3 a exponer el archivo remoteEntry.js
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'marketing',
+      name: 'auth',
       filename: 'remoteEntry.js',
       exposes: {
-        // Aqui se crea como si fuera una carpeta, carpeta MarketingApp y dentro tiene un index.js
-        './MarketingApp': './src/bootstrap',
+        // Aqui se crea como si fuera una carpeta, carpeta AuthApp y dentro tiene un index.js
+        './AuthApp': './src/bootstrap',
       },
       // shared: ['react', 'react-dom'],
       shared: packageJson.dependencies,
@@ -28,4 +23,4 @@ const devConfig = {
   ],
 };
 
-module.exports = merge(commonConfig, devConfig);
+module.exports = merge(commonConfig, prodConfig);
