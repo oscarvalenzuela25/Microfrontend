@@ -1,6 +1,9 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
-import { StylesProvider, createGenerateClassName } from '@material-ui/core';
+import {
+  StylesProvider,
+  createGenerateClassName,
+} from '@material-ui/core/styles';
 import Pricing from './components/Pricing';
 import Landing from './components/Landing';
 
@@ -13,14 +16,16 @@ const generateClassName = createGenerateClassName({
 
 const App = ({ history }) => {
   return (
-    <StylesProvider generateClassName={generateClassName}>
-      <Router history={history}>
-        <Switch>
-          <Route path="/pricing" component={Pricing} />
-          <Route path="/" component={Landing} />
-        </Switch>
-      </Router>
-    </StylesProvider>
+    <div>
+      <StylesProvider generateClassName={generateClassName}>
+        <Router history={history}>
+          <Switch>
+            <Route path="/pricing" component={Pricing} />
+            <Route path="/" component={Landing} />
+          </Switch>
+        </Router>
+      </StylesProvider>
+    </div>
   );
 };
 
