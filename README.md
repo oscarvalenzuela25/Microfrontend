@@ -7,19 +7,19 @@ App de prueba para ir testeando integraciones de microfrontend con diversas tecn
 #### `container`
 
 - React
-- MF con webpack
+- MF with webpack
 
 #### `auth`
 
 - React
-- MF con webpack
+- MF with webpack
 
 #### `marketing`
 
 - React
-- MF con webpack
+- MF with webpack
 
 #### `dashboard`
 
 - Vue
-- MF con webpack
+- MF with webpack
