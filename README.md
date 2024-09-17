@@ -23,3 +23,13 @@ App de prueba para ir testeando integraciones de microfrontend con diversas tecn
 
 - Vue
 - MF with webpack
+
+#### `host-vite-app`
+
+- React-ts
+- MF vite with @originjs/vite-plugin-federation
+
+#### `host-vite-remote`
+
+- React-ts
+- MF vite with @originjs/vite-plugin-federation
