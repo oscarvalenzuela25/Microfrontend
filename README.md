@@ -8,7 +8,7 @@ App de prueba para ir testeando integraciones de microfrontend con diversas tecn
 
 - type: Host
 - React
-- MF with webpack
+- MF with webpack (No funciona con vite, solo con webpack remotes)
 - App contained: auth, marketing, dashboard
 
 #### `auth`
@@ -41,7 +41,7 @@ App de prueba para ir testeando integraciones de microfrontend con diversas tecn
 - type: Host
 - React-ts
 - MF with webpack
-- App contained: remote-vite-app
+- App contained: remote-vite-app (Funciona solo con vite)
 
 #### `remote-vite-app`
 
