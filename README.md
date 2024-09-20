@@ -2,40 +2,42 @@
 
 App de prueba para ir testeando integraciones de microfrontend con diversas tecnologias
 
-- [Link a la documentacion](https://module-federation.io/guide/start/features.html)
+- [Link a la documentacion](https://module-federation.io/guide/start/features.html) de module federation
 - Module federation proporciona varias opciones para su uso, la forma mas ocupada es la por [webpack](https://module-federation.io/guide/basic/webpack.html) pero actualmente sacaron una forma llamada [Federation Runtime](https://module-federation.io/guide/basic/runtime.html) que ya no es necesario hacer las configuraciones en el archivo webpack.
+- Federation Runtime utiliza `remoteEntry` y `mf-manifest.json` sin problemas.
 - Dependiendo del feature pueden instalar la libreria base (@module-federation/enhanced) o ir por la que necesitan [Link](https://module-federation.io/guide/start/npm-packages.html)
+- Ahora con `Federation Runtime` puedes tener una app host con vite e integrarlo sin problemas, pero el problema surge cuando se quiere tener una app remota con vite y querer integrarlo con un host con MF.
 
-### Apps con Webpack 5 OLD
+### Apps con MF 2.0 Webpack
 
 #### `container`
 
 - type: Host
 - React
-- MF with webpack 5 (No funciona con vite, solo con webpack remotes por temas de modulos)
+- MF with webpack (No funciona con vite)
 - App contained: auth, marketing, dashboard
 
 #### `auth`
 
 - type: Remote
 - React
-- MF with webpack 5
+- MF with webpack
 
 #### `marketing`
 
 - type: Remote
 - React
-- MF with webpack 5
+- MF with webpack
 
 #### `dashboard`
 
 - type: Remote
 - Vue
-- MF with webpack 5
+- MF with webpack
 
-### Apps con vite-plugin-federation o webpack 5 configurada para funcionar con modulos
+### Apps con vite-plugin-federation o webpack configurada para funcionar con vite (modulos)
 
-[Link a la documentacion](https://module-federation.io/guide/basic/webpack.html)
+[Link a la documentacion](https://github.com/originjs/vite-plugin-federation)
 
 #### `host-vite-app`
 
