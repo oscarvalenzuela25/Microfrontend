@@ -18,7 +18,8 @@ const generateClassName = createGenerateClassName({
 
 const MarketingApp = lazy(() => import('./components/MarketingApp'));
 const AuthApp = lazy(() => import('./components/AuthApp'));
-const DashboardApp = lazy(() => import('./components/DashboardApp'));
+const ViteApp = lazy(() => import('./components/ViteApp'));
+// const DashboardApp = lazy(() => import('./components/DashboardApp'));
 
 const history = createBrowserHistory();
 
@@ -44,9 +45,8 @@ const App = () => {
               <Route path="/auth">
                 <AuthApp onSignIn={() => setIsSignedIn(true)} />
               </Route>
-              <Route path="/dashboard">
-                {!isSignedIn && <Redirect to="/" />}
-                <DashboardApp />
+              <Route path="/vite">
+                <ViteApp />
               </Route>
               <Route path="/" component={MarketingApp} />
             </Switch>

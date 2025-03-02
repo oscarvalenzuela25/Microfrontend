@@ -17,28 +17,27 @@ init({
       alias: 'auth',
     },
     {
-      name: 'dashboard',
-      entry: 'http://localhost:8083/mf-manifest.json',
-      alias: 'dashboard',
+      name: 'vite_provider',
+      entry: 'http://localhost:8083/remoteEntry.js',
+      type: 'module',
+      alias: 'vite'
     },
   ],
   shared: {
     react: {
-      version: '17.0.1',
+      version: '^17.0.1',
       scope: 'default',
       lib: () => React,
       shareConfig: {
         singleton: true,
-        requiredVersion: '^17.0.1',
       },
     },
     'react-dom': {
-      version: '17.0.1',
+      version: '^17.0.1',
       scope: 'default',
       lib: () => ReactDOM,
       shareConfig: {
         singleton: true,
-        requiredVersion: '^17.0.1',
       },
     },
   },
